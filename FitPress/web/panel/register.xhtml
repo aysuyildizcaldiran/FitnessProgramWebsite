@@ -5,11 +5,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <head>
         <title>REGISTER</title>
-        
-    <style>
+
+        <style>
             * {
                 padding: 0;
                 margin: 0;
@@ -172,8 +172,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 text-align: center;
                 padding-bottom: 114px;
             }
+            #container1{
+                background-color: whitesmoke;
+            }
 
-           
+
         </style>
     </head>
     <body>
@@ -186,10 +189,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <div id="nav-links">
                     <ul>
                         <li class="nav-item">
+                            <a href="support.xhtml" class="nav-link text-uppercase">Personal Support</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="about.xhtml" class="nav-link text-uppercase">About</a>
                         </li>
                         <li class="nav-item">
-                             <a href="register.xhtml" class="nav-link text-uppercase">REGISTER</a>
+                            <a href="register.xhtml" class="nav-link text-uppercase">REGISTER</a>
                         </li>
                         <li class="nav-item">
                             <a href="login.xhtml" class="nav-link text-uppercase">LOGIN</a>
@@ -202,14 +208,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
         <header>
 
-            <div class="container">
+            <div class="container1">
+
                 <h:form> <br/>
-                    UserName 
-                    <h:inputText  value=""/><!-- comment --> <br/>
-                    Password
-                    <h:inputText  value=""/><br/>
-                    <h:commandButton class="btn" value="LOGIN"/>
+                    İsim:<h:inputText value="#{registerBean.kullanici.isim}"/><br/>
+                    Email:<h:inputText value="#{registerBean.kullanici.email}"/><br/>
+                    Telefon:<h:inputText value="#{registerBean.kullanici.telefon}"/><br/>
+                    Adres:<h:inputText value="#{registerBean.kullanici.adres}"/><br/>
+                    Şifre:<h:inputText value="#{registerBean.kullanici.password}"/><br/>
+                    <h:commandButton action="#{registerBean.create()}" value="Register"/>
+                    
                 </h:form>
+                   
             </div>
         </header>
 

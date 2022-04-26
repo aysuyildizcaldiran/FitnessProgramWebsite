@@ -173,7 +173,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 padding-bottom: 114px;
             }
 
-           
+
         </style>
     </head>
     <body>
@@ -181,15 +181,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <div class="container clearfix">
                 <div id="logo-box">
                     <i class="fas fa-dragon fa-2x"></i>
-                    <a href="/" class="logo text-uppercase">FITPRESS</a>
+                    <a href="index.xhtml" class="logo text-uppercase">FITPRESS</a>
                 </div>
                 <div id="nav-links">
                     <ul>
                         <li class="nav-item">
+                            <a href="support.xhtml" class="nav-link text-uppercase">Personal Support</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="about.xhtml" class="nav-link text-uppercase">About</a>
                         </li>
                         <li class="nav-item">
-                              <a href="register.xhtml" class="nav-link text-uppercase">REGISTER</a>
+                            <a href="register.xhtml" class="nav-link text-uppercase">REGISTER</a>
                         </li>
                         <li class="nav-item">
                             <a href="login.xhtml" class="nav-link text-uppercase">LOGIN</a>
@@ -203,13 +206,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <header>
 
             <div class="container">
-                <h:form> <br/>
-                    UserName 
-                    <h:inputText  value=""/><!-- comment --> <br/>
+                <h:form rendered="#{validUser==null}"> <br/>
+                    E-mail 
+                    <h:inputText  value="#{loginBean.kullanici.email}"/><!-- comment --> <br/>
                     Password
-                    <h:inputText  value=""/><br/>
-                    <h:commandButton class="btn" value="LOGIN"/>
+                    <h:inputText  value="#{loginBean.kullanici.password}"/><br/>
+                    <h:commandButton class="btn" action="#{loginBean.login()}" value="LOGIN"/>
                 </h:form>
+                <h:panelGroup rendered="#{validUser!=null}" layout="block" > 
+                    UserName: #{validUser.email}<br/><!-- comment -->
+                    Password: #{validUser.password}
+                </h:panelGroup>
             </div>
         </header>
 
