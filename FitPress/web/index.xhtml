@@ -1,0 +1,647 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>FITPRESS</title>
+        
+    <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                font-size: 10px;
+            }
+
+            body {
+                font-family: 'Josefin+Sans'sans-serif;
+                font-size: 1.6rem;
+                font-weight: 400;
+                background-color: #fff;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: monospace;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            ul {
+                list-style-type: none;
+            }
+
+            section {
+                padding-top: 10rem;
+                padding-bottom: 10rem;
+                text-align: center;
+            }
+
+            .btn {
+                margin-top: 2.5rem;
+                font-weight: 400;
+                display: inline-block;
+                background-color: transparent;
+                border: 2px solid #fff;
+                color: #fff;
+                border-radius: .4rem;
+                transition: all 0.4sn;
+                cursor: pointer;
+            }
+
+            .btn:hover {
+                color: #212529;
+                background-color: #fff;
+            }
+
+            .btn-primary {
+                background-color: #2C3E50;
+                border-color: #2C3E50;
+                padding: 1.2rem 1rem;
+            }
+
+            .btn-primary:hover {
+                background-color: #128f76;
+            }
+            .btn-social{
+                width: 5rem;
+                height: 5rem;
+                border-radius: 50%;
+                font-size: 2rem;
+                line-height: 2rem;
+
+            }
+            .btn-large{
+                font-size: 2rem;
+                padding: 2.2rem 1.6rem;
+            }
+
+
+            .img-fluid-2 {
+                width: 315px;
+                height: 300px;
+
+            }
+
+            .clearfix::after {
+                content: "";
+                display: block;
+                clear: both;
+
+            }
+            .container{
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+
+
+            .text-uppercase {
+                text-transform: uppercase;
+            }
+
+            /*navbar*/
+            nav {
+                background-color: #2C3E50;
+                color: #fff;
+                padding: 2.4rem;
+                position: fixed;
+                width: 100%;
+                z-index: 500;
+            }
+
+            #logo-box {
+                float: left;
+                padding-top: .5rem;
+
+            }
+
+            #logo-box .logo {
+                color: #fff;
+                font-weight: 700;
+                font-size: 3.2rem;
+            }
+
+            #nav-links {
+                float: right;
+            }
+
+            #nav-links li {
+                float: left;
+                margin: .4rem;
+            }
+
+            #nav-links .nav-link {
+                color: #fff;
+                font-size: 1.6rem;
+                font-weight: 800;
+                display: block;
+                padding: 2rem;
+                letter-spacing: .1rem;
+                transition: color .3sn;
+            }
+
+            #nav-links .nav-item {
+                float: left;
+                margin: .4rem;
+            }
+
+            #nav-links .nav-link:hover {
+                color: #18bc9c;
+            }
+
+            /*header*/
+            header {
+                background-image: url("panel/bacground1.jpg");
+                height: 900px;
+                padding-top: calc(114px + 10rem);
+                text-align: center;
+                padding-bottom: 114px;
+            }
+
+            header h1 {
+                color: #fff;
+                font-size: 7rem;
+            }
+
+            header h2 {
+                color: #fff;
+                font-family: cursive;
+                font-size: 3rem;
+                font-weight: 300;
+                padding-right: 28px;
+            }
+
+
+            .star-dark {
+                border: none;
+                border-top: .4rem solid #fff;
+                padding: 5px;
+                max-width: 25rem;
+                margin: 2.5rem auto;
+                height: 50px;
+            }
+
+
+
+            hr.star-dark {
+                border-color: #2C3E50;
+            }
+
+
+
+            .star-dark::after {
+                background-color: #fff;
+                color: #2C3E50;
+            }
+
+
+            .star-dark::after {
+                content: "\f005";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 3.2rem;
+                position: relative;
+                padding: 0 8px;
+
+            }
+
+            #classes h2 {
+                font-size: 4.8rem;
+                color: #2C3E50;
+            }
+
+            .col {
+                float: left;
+                width: 25%;
+                padding: 10px;
+
+            }
+
+            .classes-item {
+                position: relative;
+                height: 300px;
+            }
+
+            .classes-item img {
+                display: block;
+            }
+
+            .img-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: #2C3E50;
+                opacity: 0;
+                transition: opacity .5s ease;
+
+            }
+
+            .img-overlay .icon {
+                color: #fff;
+                font-size: 2rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .classes-item:hover .img-overlay {
+                opacity: 0.8;
+            }
+
+            #about {
+                background-color: #2C3E50;
+                color: #fff;
+
+            }
+
+            #about h2 {
+                font-size: 4.8rem;
+            }
+
+            #about-text {
+                text-align: left;
+                font-size: 2rem;
+            }
+
+            #about-text .left {
+                float: left;
+                width: 50%;
+                padding-right: 8rem;
+                padding-left: 10rem;
+            }
+
+            #about-text .right {
+                float: right;
+                width: 50%;
+                padding-left: 6rem;
+                padding-right: 5rem;
+            }
+
+            #contact h2 {
+                font-size: 4.8rem;
+                color: 2C3E50;
+            }
+
+            #contact-form {
+                width: 70%;
+                margin: 0 auto;
+                text-align: left;
+            }
+
+            .form-group {
+                border-bottom: 1px solid #e9ecef;
+                padding-bottom: 1rem;
+                margin-bottom: 4rem;
+
+            }
+
+            .form-group input,
+            .form-group textarea {
+                border: none;
+                width: 100%;
+                display: inline-block;
+                font-size: 2.4rem;
+            }
+
+            .form-group input:focus {
+                outline: 0;
+            }
+
+            footer {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+                background-color: #2C3E50;
+                color: #fff;
+                text-align: center;
+            }
+            footer h4{
+                font-size: 2.8rem;
+
+            }
+            footer li{
+                display: inline-block;
+                margin-right: 10px;
+            }
+            .copyright {
+                background-color: #000000;
+                color: #fff;
+                padding-bottom: 2.4rem;
+                padding-top: 2.4rem;
+                text-align: center;
+            }
+
+
+
+
+        </style>
+
+    </h:head>
+
+    <h:body>
+        <nav>
+            <div class="container clearfix">
+                <div id="logo-box">
+                    <i class="fas fa-dragon fa-2x"></i>
+                    <a href="/" class="logo text-uppercase">FITPRESS</a>
+                </div>
+                <div id="nav-links">
+                    <ul>
+                        <li class="nav-item">
+                            <a href="panel/about.xhtml" class="nav-link text-uppercase">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="panel/register.xhtml" class="nav-link text-uppercase">REGISTER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="panel/login.xhtml" class="nav-link text-uppercase">LOGIN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+
+
+        <header>
+
+            <div class="container">
+                <h2> Kişisel Beslenme - Antrenörlük Desteği </h2>
+            </div>
+        </header>
+        <section id="classes">
+            <div class="container">
+                <h2 class="text-uppercase"> Classes</h2>
+                <hr class="star-dark"> </hr>
+            </div>
+            <div id="classes-images" class="clearfix">
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Fish Class">
+                            <img class="img-fluid-2" src="panel/spor-aletleri-1.png"> </img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+
+
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Bird Class">
+                            <img class="img-fluid-2" src="panel/images.jpg"> </img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Frogs Class">
+                            <img class="img-fluid-2" src="panel/images.jpg"> </img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Mamals">
+                            <img class="img-fluid-2" src="panel/images.jpg"> </img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Reptiles">
+                            <img class="img-fluid-2" src="panel/images.jpg"></img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="arthropods">
+                            <img class="img-fluid-2" src="panel/images.jpg"></img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Worms">
+                            <img class="img-fluid-2" src="panel/images.jpg"> </img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="echinoderms">
+                            <img class="img-fluid-2" src="panel/images.jpg"> </img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Solent">
+                            <img class="img-fluid-2" src="panel/images.jpg"></img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Moolusc">
+                            <img class="img-fluid-2" src="panel/images.jpg"> </img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="classes-item">
+                        <a href="#" title="Foams">
+                            <img class="img-fluid-2" src="panel/images.jpg"> </img>
+                            <div class="img-overlay">
+                                <div class="icon">
+                                    <i class="fas fa-search fa-3x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="about">
+            <h2 class="text-uppercase">
+                alanlar</h2>
+            <hr class="star-light"> </hr>
+            <div id="about-text" class="clearfix">
+                <div class="left">
+                    <p class="text"> Plastic waste, cars, technological devices we use; The seas, forests and animals we hunt for pleasure. All of them endanger many animals. Animals are becoming extinct and we are just watching… Here are the animals that are getting lonely and endangered every day on Earth…</p>
+                </div>
+                <div class="right">
+                    <p class="text">
+
+                        <li> . </li>
+                        <li> . </li>
+                        <li> . </li>
+                        <li> .</li>
+                        <li>.  </li>
+                        <li>  </li>
+                        <li>. </li>
+                        <li> . </li>
+                        <li> . </li>
+                        <li>. </li>
+                        <li> . </li>
+                        <li> . </li>
+                        <li> . </li>
+                        <li> . </li>
+
+
+                    </p>
+                </div>
+            </div>
+            <button class="btn btn-outline btn-large">
+                <i class="fas fa-arrow-circle-right"></i>
+                For More . . .
+            </button>
+
+
+
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="text-uppercase"> Contact me </h2>
+                <hr class="star-dark"> </hr>
+                <form id="contact-form">
+
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Name"> </input>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="email" placeholder="Email"> </input>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="phone" placeholder="Phone number"></input>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Message"></textarea>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">
+                            Send
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </section>
+
+        <footer>
+            <div class="container clearfix">
+                <div id="col">
+                    <h4 class="text-uppercase"> Around the web </h4>
+                    <ul>
+                        <li>
+                            <button class="btn btn-outline btn-social">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn btn-outline btn-social">
+                                <i class="fab fa-google"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn btn-outline btn-social">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn btn-outline btn-social">
+                                <i class="fab fa-linkedin-in"></i>
+                            </button>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </footer>
+
+        <div class="copyright">
+            <div class="container">
+                <small> Copyright  ©  Your Website 2020</small>
+            </div>
+
+        </div>
+
+    </h:body>
+
+</html>
+
+
+

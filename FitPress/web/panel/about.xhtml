@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>ABOUT</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                font-size: 10px;
+            }
+
+            body {
+                font-family: 'Josefin+Sans'sans-serif;
+                font-size: 1.6rem;
+                font-weight: 400;
+                background-color: #fff;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: monospace;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            ul {
+                list-style-type: none;
+            }
+
+            section {
+                padding-top: 10rem;
+                padding-bottom: 10rem;
+                text-align: center;
+            }
+
+            .btn {
+                margin-top: 2.5rem;
+                font-weight: 400;
+                display: inline-block;
+                background-color: transparent;
+                border: 2px solid #fff;
+                color: #fff;
+                border-radius: .4rem;
+                transition: all 0.4sn;
+                cursor: pointer;
+            }
+
+            .btn:hover {
+                color: #212529;
+                background-color: #fff;
+            }
+
+            .btn-primary {
+                background-color: #2C3E50;
+                border-color: #2C3E50;
+                padding: 1.2rem 1rem;
+            }
+
+            .btn-primary:hover {
+                background-color: #128f76;
+            }
+            .btn-social{
+                width: 5rem;
+                height: 5rem;
+                border-radius: 50%;
+                font-size: 2rem;
+                line-height: 2rem;
+
+            }
+            .btn-large{
+                font-size: 2rem;
+                padding: 2.2rem 1.6rem;
+            }
+
+
+            .img-fluid-2 {
+                width: 315px;
+                height: 300px;
+
+            }
+
+            .clearfix::after {
+                content: "";
+                display: block;
+                clear: both;
+
+            }
+            .container{
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+
+
+            .text-uppercase {
+                text-transform: uppercase;
+            }
+
+            /*navbar*/
+            nav {
+                background-color: #2C3E50;
+                color: #fff;
+                padding: 2.4rem;
+                position: fixed;
+                width: 100%;
+                z-index: 500;
+            }
+
+            #logo-box {
+                float: left;
+                padding-top: .5rem;
+
+            }
+
+            #logo-box .logo {
+                color: #fff;
+                font-weight: 700;
+                font-size: 3.2rem;
+            }
+
+            #nav-links {
+                float: right;
+            }
+
+            #nav-links li {
+                float: left;
+                margin: .4rem;
+            }
+
+            #nav-links .nav-link {
+                color: #fff;
+                font-size: 1.6rem;
+                font-weight: 800;
+                display: block;
+                padding: 2rem;
+                letter-spacing: .1rem;
+                transition: color .3sn;
+            }
+
+            #nav-links .nav-item {
+                float: left;
+                margin: .4rem;
+            }
+
+            #nav-links .nav-link:hover {
+                color: #18bc9c;
+            }
+
+            /*header*/
+            header {
+
+                height: 900px;
+                padding-top: calc(114px + 10rem);
+                text-align: center;
+                padding-bottom: 114px;
+            }
+            footer {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+                background-color: #2C3E50;
+                color: #fff;
+                text-align: center;
+            }
+            footer h4{
+                font-size: 2.8rem;
+
+            }
+            footer li{
+                display: inline-block;
+                margin-right: 10px;
+            }
+            .copyright {
+                background-color: #000000;
+                color: #fff;
+                padding-bottom: 2.4rem;
+                padding-top: 2.4rem;
+                text-align: center;
+            }
+        </style>
+
+    </head>
+    <body>
+        <nav>
+            <div class="container clearfix">
+                <div id="logo-box">
+                    <i class="fas fa-dragon fa-2x"></i>
+                    <a href="/" class="logo text-uppercase">FITPRESS</a>
+                </div>
+                <div id="nav-links">
+                    <ul>
+                        <li class="nav-item">
+                            <a href="about.xhtml" class="nav-link text-uppercase">About</a>
+                        </li>
+                        <li class="nav-item">
+                              <a href="register.xhtml" class="nav-link text-uppercase">REGISTER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.xhtml" class="nav-link text-uppercase">LOGIN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+
+        <header> 
+        <div> 
+
+            <p> 
+                Fitness kelime anlamı olarak "Sağlıklı ve formda olmak"dır. Bir çok egzersize dayalı bir spordur. 
+                Diğer bütün sporlardan farklı olarak temelde kasların tek tek aletli ya da aletsiz çalıştırılmasıyla sıkılaştırılması ve güçlendirilmesi amaçlanır. 
+                Esasen bütün sporların temelidir.</p>
+
+
+            <h2> Faydaları </h2>
+
+            <p>
+                Fitness sporu vücutta bol bol endorfin, östrojen veya testesteron hormonu salgılanmasını sağlar. 
+                Bu da, kişinin kendisini psikolojik olarak daha iyi ve zinde hissetmesini sağlar. Vücudun forma girmesi de özgüveni arttırır. 
+                Metobolizmayı hızlandırır. Enerjiyi arttırır. Uykuyu düzenler. Psikolojik iyilişme sağlayarak stresten uzaklaştırır. Daha sağlıklı ve hızlı düşünmeyi sağlar. 
+                Kalp ve damar sistemini güçlendirir. Uzun dönemli fitness sporuyla uğraşanların kanser ve kalp krizine yakalanma riski düşüktür. Kalori yakmayı sağladığından şeker hastaları için önerilir.
+            </p>
+
+
+
+
+        </div>
+            </header>
+        <footer>
+            Copyright © 2022 | FITPRESS | Tüm Hakları Saklıdır.
+        </footer>
+
+
+
+    </body>
+</html>
