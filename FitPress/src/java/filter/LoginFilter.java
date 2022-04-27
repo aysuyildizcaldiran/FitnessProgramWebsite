@@ -23,14 +23,14 @@ public class LoginFilter implements Filter {
         String url = request.getRequestURI();
 
         HttpSession session = request.getSession();
-        Kullanici user = null;
+         Kullanici user = null;
 
         if (user != null) {
             user = (Kullanici) session.getAttribute("validUser");
         }
         if (user == null) {
             if (url.contains("support")) {
-                response.sendRedirect(request.getContextPath() + "/login.xhtml");
+                response.sendRedirect(request.getContextPath() + "/panel/login.xhtml");
 
             } else {
                 fc.doFilter(sr, sr1);
@@ -40,8 +40,8 @@ public class LoginFilter implements Filter {
             if (url.contains("register")) {
                 response.sendRedirect(request.getContextPath() + "/index.xhtml");
             }else if(url.contains("support")) {
-             session.invalidate();
-             response.sendRedirect(request.getContextPath() + "/login.xhtml");
+            
+             response.sendRedirect(request.getContextPath() + "/panel/login.xhtml");
             }else {
                 fc.doFilter(sr, sr1);
             }
@@ -49,5 +49,6 @@ public class LoginFilter implements Filter {
 
     }
     }
+
     
 

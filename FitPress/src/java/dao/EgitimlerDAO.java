@@ -14,7 +14,7 @@ public class EgitimlerDAO extends DBConnection {
      public void create(Egitimler egitim) {
         try {
             Statement st = this.getConnection().createStatement();
-            String query = "insert into egitim (isim) values ('" + egitim.getIsim() + "') ";
+            String query = "insert into egitim (isim,aciklama,egitmen,fiyat,category) values ('" + egitim.getIsim() + "','" + egitim.getAciklama() + "','" + egitim.getEgitmen() + "','" + egitim.getFiyat() + "','" + egitim.getCategory() + "') ";
             st.executeUpdate(query);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -23,7 +23,7 @@ public class EgitimlerDAO extends DBConnection {
      public void update(Egitimler egitim) {
         try {
             Statement st = this.getConnection().createStatement();
-            String query = "update category set isim='" + egitim.getIsim() + "' where id=" + egitim.getEgitim_id();
+            String query = "update egitmen set fiyat='" + egitim.getFiyat() + "' where id=" + egitim.getEgitim_id();
             st.executeUpdate(query);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -32,7 +32,7 @@ public class EgitimlerDAO extends DBConnection {
       public void delete(Egitimler egitim) {
         try {
             Statement st = this.getConnection().createStatement();
-            String query = "delete from category where id="+ egitim.getEgitim_id();
+            String query = "delete from egitim where id="+ egitim.getEgitim_id();
             st.executeUpdate(query);
         } catch (Exception e) {
             System.out.println(e.getMessage());

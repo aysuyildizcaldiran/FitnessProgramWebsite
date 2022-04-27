@@ -16,11 +16,6 @@ public class LoginBean implements Serializable{
     public LoginBean() {
     }
 
-    public LoginBean(Kullanici kullanici) {
-        this.kullanici = kullanici;
-    }
-
-
     public Kullanici getKullanici() {
         if(kullanici==null){
             kullanici=new Kullanici();

@@ -9,7 +9,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <head>
         <title>SUPPORT</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <style>
+
+        <style>
             * {
                 padding: 0;
                 margin: 0;
@@ -166,33 +167,69 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
             /*header*/
             header {
-                
                 height: 900px;
                 padding-top: calc(114px + 10rem);
                 text-align: center;
                 padding-bottom: 114px;
             }
+            .pagination li {
+                display: inline;
+                text-align: center;
 
-           
+            }
+
+            .pagination a {
+                float: left;
+                display: block;
+                text-decoration: none;
+                color: #808080;
+                margin-left: 2px;
+                padding: 0;
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                -moz-border-radius: 100%;
+                -webkit-border-radius: 100%;
+                border-radius: 100%;
+            }
+
+            .pagination a:hover {
+                background-color: lightblue;
+            }
+
+            .pagination a.active, .pagination a:active {
+                background-color:  lightblue;
+            }
+
+            .copyright {
+                background-color: #000000;
+                color: #fff;
+                padding-bottom: 2.4rem;
+                padding-top: 2.4rem;
+                text-align: center;
+            }
+
         </style>
+
+
     </head>
     <body>
         <nav>
             <div class="container clearfix">
                 <div id="logo-box">
                     <i class="fas fa-dragon fa-2x"></i>
-                    <a href="/" class="logo text-uppercase">FITPRESS</a>
+                    <a href="index.xhtml" class="logo text-uppercase">FITPRESS</a>
                 </div>
                 <div id="nav-links">
                     <ul>
-                          <li class="nav-item">
+                        <li class="nav-item">
                             <a href="support.xhtml" class="nav-link text-uppercase">Personal Support</a>
                         </li>
                         <li class="nav-item">
                             <a href="about.xhtml" class="nav-link text-uppercase">About</a>
                         </li>
                         <li class="nav-item">
-                              <a href="register.xhtml" class="nav-link text-uppercase">REGISTER</a>
+                            <a href="register.xhtml" class="nav-link text-uppercase">REGISTER</a>
                         </li>
                         <li class="nav-item">
                             <a href="login.xhtml" class="nav-link text-uppercase">LOGIN</a>
@@ -204,10 +241,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         </nav>
 
         <header>
-
-           
+            <div class="container"> 
+                <ul class="pagination">
+                    <li><a href="#" ></a></li>
+                    <li><a href="#" class="active">1</a></li>
+                    <li> <a href="#" class="prev">2</a></li>
+                    <li> <a href="#">3</a></li>
+                    <li> <a href="#">4</a></li>
+                    <li> <a href="#">5</a></li>
+                    <li><a href="#" class="next"></a></li>
+                </ul>
+            </div>
         </header>
 
 
+
+        <div class="copyright">
+            <div class="container">
+                <small> Copyright  ©  Your Website 2020</small>
+            </div>
+
+        </div>
     </body>
 </html>
