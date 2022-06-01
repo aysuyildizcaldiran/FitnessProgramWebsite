@@ -1,13 +1,21 @@
-
 package entity;
 
+import dao.EgitimlerDAO;
+import dao.KullaniciDAO;
+import java.util.List;
+
 public class Egitimler {
+
     private int egitim_id;
     private String isim;
     private String aciklama;
     private Egitmen egitmen;
+    EgitimlerDAO dao;
+
     private double fiyat;
     private Category category;
+    private List<Egitimler> list;
+
 
     public Egitimler() {
     }
@@ -21,6 +29,34 @@ public class Egitimler {
         this.category = category;
     }
 
+    public Egitimler(int egitim_id, String isim, String aciklama, double fiyat) {
+        this.egitim_id = egitim_id;
+        this.isim = isim;
+        this.aciklama = aciklama;
+        this.fiyat = fiyat;
+    }
+
+
+    public List<Egitimler> getList() {
+        return list;
+    }
+
+    public void setList(List<Egitimler> list) {
+        this.list = list;
+    }
+
+    public EgitimlerDAO getDao() {
+        if (dao == null) {
+            dao = new EgitimlerDAO();
+        }
+        return dao;
+    }
+
+    public void setDao(EgitimlerDAO dao) {
+        this.dao = dao;
+    }
+
+  
     public int getEgitim_id() {
         return egitim_id;
     }
@@ -68,8 +104,5 @@ public class Egitimler {
     public void setCategory(Category category) {
         this.category = category;
     }
-    
-    
-    
-    
+
 }

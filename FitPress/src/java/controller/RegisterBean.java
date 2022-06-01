@@ -1,7 +1,9 @@
 
 package controller;
+import dao.EgitmenDAO;
 import dao.KullaniciDAO;
 import entity.Category;
+import entity.Egitmen;
 import entity.Kullanici;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
@@ -12,9 +14,33 @@ import java.io.Serializable;
 public class RegisterBean implements Serializable{
     
     private Kullanici kullanici;
+    private Egitmen egitmen;
+    private EgitmenDAO egitmenDao;
     private KullaniciDAO dao;
 
     public RegisterBean() {
+    }
+
+    public Egitmen getEgitmen() {
+         if(egitmen==null){
+           egitmen=new Egitmen();
+        }
+        return egitmen;
+    }
+
+    public void setEgitmen(Egitmen egitmen) {
+        this.egitmen = egitmen;
+    }
+
+    public EgitmenDAO getEgitmenDao() {
+        if(egitmenDao==null){
+            egitmenDao=new EgitmenDAO();
+        }
+        return egitmenDao;
+    }
+
+    public void setEgitmenDao(EgitmenDAO egitmenDao) {
+        this.egitmenDao = egitmenDao;
     }
 
     public Kullanici getKullanici() {
@@ -39,17 +65,38 @@ public class RegisterBean implements Serializable{
         this.dao = dao;
     }
     
-    public void create(){
+    
+    //Kullanici
+    public void createK(){
         this.getDao().create(kullanici);
         kullanici=new Kullanici();
     }
-    public void update(){
+    public void updateK(){
        this.getDao().update(kullanici);
         kullanici=new Kullanici();
     }
-    public void delete(Kullanici kullanici){
+    public void deleteK(Kullanici kullanici){
         this.getDao().delete(kullanici);
               
     }
+    
+    
+    //Egitmen
+     public void createE(){
+        this.getEgitmenDao().createEgitmen(egitmen);
+        egitmen=new Egitmen();
+    }
+    public void updateE(){
+        this.getEgitmenDao().createEgitmen(egitmen);
+        egitmen=new Egitmen();
+    }
+    public void deleteE(Egitmen egitmen){
+        this.getEgitmenDao().deleteEgitmen(egitmen);
+              
+    }
+    
+    
+    
+    
     
 }

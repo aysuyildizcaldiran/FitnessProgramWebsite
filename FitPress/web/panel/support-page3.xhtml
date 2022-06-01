@@ -5,11 +5,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
         <title>SUPPORT</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   <style>
+        <style>
             * {
                 padding: 0;
                 margin: 0;
@@ -282,43 +283,77 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             </div>
 
         </nav>
-       
+
         <section id="classes">
             <div id="classes-images" class="clearfix">
-             
-                 
                 <div class="col">
-                    <div class="classes-item">
-                        <a href="#" title="Worms">
-                            <h3>KOL</h3>
-                            <img class="img-fluid-2" src="omuz.jpg"> </img>
-                            <div class="img-overlay">
-                                <div class="icon">
-                                    <i class="fas fa-search fa-3x"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <h:form>
+                        CATEGORY NAME :<h:inputText value="#{categoryBean.entity.isim}"/>
+                        <h:commandButton rendered="#{categoryBean.entity.category_id==0}" action="#{categoryBean.create()}" value="Create"/>
+                        <h:commandButton rendered="#{categoryBean.entity.category_id!=0}" action="#{categoryBean.update()}" value="Update"/>
+                        <h:commandButton rendered="#{categoryBean.entity.category_id!=0}" action="#{categoryBean.clear()}" value="Clear Form"/>
+
+                    </h:form> 
+                    <h:form> 
+                        <h:dataTable value="#{categoryBean.list}" var="entity">
+                            <h:column> 
+                                <f:facet name="header">ID</f:facet> #{entity.category_id}              
+                            </h:column>
+                            <h:column> 
+                                <f:facet name="header">NAME</f:facet> #{entity.isim}              
+                            </h:column>
+                            <h:column> 
+                                <f:facet name="header">ADMINISTRATION</f:facet>  
+                                <h:commandButton  action="#{categoryBean.delete(entity)}" value="Delete"/>
+                                <h:commandButton  action="#{categoryBean.setEntity(entity)}" value="Update"/>
+
+
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:form>
+
+
                 </div>
                 <div class="col">
-                    <div class="classes-item">
-                        <a href="#" title="echinoderms">
-                            <h3>KOL</h3>
-                            <img class="img-fluid-2" src="omuz.jpg"> </img>
-                            <div class="img-overlay">
-                                <div class="icon">
-                                    <i class="fas fa-search fa-3x"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <h:form >
+                        Category: <h:selectOneMenu value="#{egitimBean.egitim.category}" converter="categoryConverter">
+                            <f:selectItems value="#{categoryBean.list}" var="c" itemValue="#{c}" itemLabel="#{c.isim}"/>
+                        </h:selectOneMenu>
+                        <br/>
+                        Title:<h:inputText value="#{egitimBean.egitim.isim}"/>
+                        Context:<h:inputTextarea rows="5" cols="50" value="#{egitimBean.egitim.aciklama}"/>
+                        <h:commandButton rendered="#{egitimBean.egitim.egitim_id==0}" action="#{egitimBean.create()}" value="Create"/>
+                        <h:commandButton rendered="#{egitimBean.egitim.egitim_id!=0}" action="#{egitimBean.update()}" value="Update"/>
+                        <h:commandButton rendered="#{egitimBean.egitim.egitim_id!=0}" action="#{egitimBean.clear()}" value="Clear Form"/>
+                    </h:form>      
+                    <hr/>
+                    <h:form> 
+                        <h:dataTable value="#{egitimBean.list}" var="entity">
+                            <h:column> 
+                                <f:facet name="header">ID</f:facet> #{entity.egitim_id}              
+                            </h:column>
+                            <h:column> 
+                                <f:facet name="header">CATEGORY</f:facet> #{entity.category.isim}              
+                            </h:column>
+                            <h:column> 
+                                <f:facet name="header">TITLE</f:facet> #{entity.isim}              
+                            </h:column>                 
+                            <h:column> 
+                                <f:facet name="header">ADMINISTRATION</f:facet>  
+                                <h:commandButton  action="#{egitimBean.delete(entity)}" value="Delete"/>
+                                <h:commandButton  action="#{egitimBean.setEntity(entity)}" value="Update"/>
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:form>
+
                 </div>
-            </div>
+            </div> 
 
         </section>
-
         <section> 
-            
+
             <div class="container"> 
                 <ul class="pagination">
                     <li><a href="#" ></a></li>
@@ -329,7 +364,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 </ul>
             </div>
         </section>
-        
+
         <div class="copyright">
             <div class="container">
                 <small> Copyright  ©  Your Website 2020</small>

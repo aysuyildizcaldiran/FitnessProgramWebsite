@@ -1,6 +1,6 @@
-
 package filter;
 
+import entity.Egitmen;
 import entity.Kullanici;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
@@ -18,37 +18,32 @@ public class LoginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest sr, ServletResponse sr1, FilterChain fc) throws IOException, ServletException {
-     HttpServletRequest request = (HttpServletRequest) sr;
+        HttpServletRequest request = (HttpServletRequest) sr;
         HttpServletResponse response = (HttpServletResponse) sr1;
+
         String url = request.getRequestURI();
-
         HttpSession session = request.getSession();
-         Kullanici user = null;
 
-        if (user != null) {
+        Kullanici user = null;
+
+        if (session != null) {
             user = (Kullanici) session.getAttribute("validUser");
         }
+        //Kullanici filter 
         if (user == null) {
             if (url.contains("support")) {
                 response.sendRedirect(request.getContextPath() + "/panel/login.xhtml");
-
             } else {
                 fc.doFilter(sr, sr1);
             }
-
         } else {
-            if (url.contains("register")) {
+            if (url.contains("login")) {
                 response.sendRedirect(request.getContextPath() + "/index.xhtml");
-            }else if(url.contains("support")) {
-            
-             response.sendRedirect(request.getContextPath() + "/panel/login.xhtml");
-            }else {
+            } else {
                 fc.doFilter(sr, sr1);
             }
         }
 
     }
-    }
 
-    
-
+}

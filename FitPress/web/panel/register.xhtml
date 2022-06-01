@@ -172,8 +172,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 text-align: center;
                 padding-bottom: 114px;
             }
-            #container1{
-                background-color: whitesmoke;
+            .container2 {
+                background-color: ghostwhite;
+                float: left;
+                width: 40%;
+                padding: 10px;
+                margin: 25px;
+                margin-left: 65px;
+                border-radius:10px;
+            }
+            .container2 .btn{
+                color: black;
             }
 
 
@@ -184,7 +193,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <div class="container clearfix">
                 <div id="logo-box">
                     <i class="fas fa-dragon fa-2x"></i>
-                    <a href="/" class="logo text-uppercase">FITPRESS</a>
+                    <a href="http://localhost:8080/FitPress/" class="logo text-uppercase">FITPRESS</a>
                 </div>
                 <div id="nav-links">
                     <ul>
@@ -207,19 +216,44 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         </nav>
 
         <header>
-
-            <div class="container1">
-
-                <h:form> <br/>
-                    İsim:<h:inputText value="#{registerBean.kullanici.isim}"/><br/>
+            <div class="container2">
+                <h4>KULLANICI REGISTER</h4>
+                <h:form rendered="#{validUser==null}"> <br/>
+                    Name:<h:inputText value="#{registerBean.kullanici.isim}"/><br/>
                     Email:<h:inputText value="#{registerBean.kullanici.email}"/><br/>
-                    Telefon:<h:inputText value="#{registerBean.kullanici.telefon}"/><br/>
-                    Adres:<h:inputText value="#{registerBean.kullanici.adres}"/><br/>
-                    Şifre:<h:inputText value="#{registerBean.kullanici.password}"/><br/>
-                    <h:commandButton action="#{registerBean.create()}" value="Register"/>
-                    
+                    Telephone:<h:inputText value="#{registerBean.kullanici.telefon}"/><br/>
+                    Address:<h:inputText value="#{registerBean.kullanici.adres}"/><br/>
+                    Password:<h:inputText value="#{registerBean.kullanici.password}"/><br/>
+                    <h:commandButton action="#{registerBean.createK()}" value="Register"/>
+                    <h:messages></h:messages>
+                </h:form> 
+                <h:form rendered="#{validUser!=null}" > 
+                    Name:#{validUser.isim} <h:commandButton action="#{registerBean.updateK()}" value="Update"></h:commandButton><br/>
+                    Mail: #{validUser.email} <h:commandButton action="#{registerBean.updateK()}" value="Update"></h:commandButton><br/>
+                    Telephone: #{validUser.telefon}  <h:commandButton action="#{registerBean.updateK()}" value="Update"></h:commandButton><br/>
+                    Password: #{validUser.password}  <h:commandButton action="#{registerBean.updateK()}" value="Update"></h:commandButton><br/>
+                    <h:commandButton action="#{registerBean.deleteK(validUser)}" value="HESABI SİL"></h:commandButton>
                 </h:form>
-                   
+            </div>
+            <div class="container2">
+                <h4>EGİTMEN REGISTER</h4>
+                <h:form rendered="#{validUser2==null}"> <br/>
+                    Name:<h:inputText value="#{registerBean.egitmen.isim}"/><br/>
+                    Email:<h:inputText value="#{registerBean.egitmen.email}"/><br/>
+                    Telephone:<h:inputText value="#{registerBean.egitmen.telefon}"/><br/>
+                    Address:<h:inputText value="#{registerBean.egitmen.adres}"/><br/>
+                    Password:<h:inputText value="#{registerBean.egitmen.password}"/><br/>
+                    <h:commandButton action="#{registerBean.createE()}" value="Register"/>
+                    <h:messages></h:messages>
+                </h:form>
+                <h:panelGroup rendered="#{validUser2!=null}" layout="block" > 
+                    Name:#{validUser2.isim}<h:commandButton action="#{registerBean.updateE()}" value="Update"></h:commandButton><br/>
+                    Mail: #{validUser2.email}<h:commandButton action="#{registerBean.updateE()}" value="Update"></h:commandButton><br/>
+                    Telephone #{validUser2.telefon} <h:commandButton action="#{registerBean.updateE()}" value="Update"></h:commandButton><br/>
+                    Password: #{validUser2.password}  <h:commandButton action="#{registerBean.updateE()}" value="Update"></h:commandButton><br/>
+                    <h:commandButton action="#{registerBean.deleteE(validUser2)}" value="HESABI SİL"></h:commandButton>
+                </h:panelGroup>
+
             </div>
         </header>
 

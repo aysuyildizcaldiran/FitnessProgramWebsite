@@ -1,16 +1,25 @@
 package entity;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.List;
 
 public class Egitmen {
 
     private int egitmen_id;
+    @NotNull(message = "Name cannot be null")
     private String isim;
+    @NotNull(message = "Telefon cannot be null")
     private String telefon;
+    @Email(message = "Email should be valid")
     private String email;
     private String adres;
+    @Size(min = 6, max = 10, message
+            = "About Me must be between 6 and 10 characters")
     private String password;
-    private List<Egitimler> egitimler;
+    private List<@NotBlank Egitimler> egitimler;
 
     public Egitmen() {
     }
